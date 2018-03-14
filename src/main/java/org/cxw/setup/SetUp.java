@@ -10,8 +10,8 @@ public class SetUp {
 	private static WebDriver driver;
 	private static String baseUrl = PropertyFile.readProperty("baseURL");
 	private static String driverPath = PropertyFile.readProperty("chrome.driver.path");
-	private static String username = PropertyFile.readProperty("username");
-	private static String password = PropertyFile.readProperty("password");
+	//private static String username = PropertyFile.readProperty("username");
+	//private static String password = PropertyFile.readProperty("password");
 
 	public static void setupDriver() {
 
