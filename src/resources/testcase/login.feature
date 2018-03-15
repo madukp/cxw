@@ -1,4 +1,4 @@
-Feature: BusinessUser CRUD
+Feature: Login
 
   @loginAsSuperAdmin
   Scenario: Login as Super admin
