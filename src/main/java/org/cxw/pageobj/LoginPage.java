@@ -14,31 +14,31 @@ public class LoginPage extends SetUp {
 
     private void typeUsername(String username) {
         By txtUserName = By.xpath(".//*[@id='username']");
-        System.out.println("typeUsername");
         driver.findElement(txtUserName).sendKeys(username);
+        System.out.println("typeUsername");
     }
 
     private void typePassword(String pwd) {
         By txtPassword = By.xpath(".//*[@id='password']");
-        System.out.println("typePassword");
         driver.findElement(txtPassword).sendKeys(pwd);
+        System.out.println("typePassword");
     }
 
     private void clickLoginButton() {
         By btnLogin = By.xpath(".//*[text()='Login']");
-        System.out.println("clickLoginButton");
         driver.findElement(btnLogin).click();
+        System.out.println("clickLoginButton");
     }
 
     private void selectDefaultClient() {
         By popPuWelcome = By.xpath("//div[@class='modal-body ng-scope']");
-        System.out.println("selectDefaultClient");
         By btnOk = By.xpath("//div[@class='modal-body ng-scope']//div[@class='modal-footer']//button[@class='btn btn-primary']");
         //By btnOk = By.xpath(".//*[text()='OK']");
 
         wait.until(ExpectedConditions.presenceOfElementLocated(popPuWelcome));
         wait.until(ExpectedConditions.elementToBeClickable(btnOk));
         driver.findElement(btnOk).click();
+        System.out.println("selectDefaultClient");
     }
 
     public void superAdminLogin() {

@@ -19,6 +19,8 @@ public class ClientTest extends SetUp{
         cp.clickLeftNavClients();
         cp.clickCreateNewClientBtn();
         cp.fillClientDetails();
+        cp.selectClientSubLevel("Sub Level 3");
+        cp.selectMissionLimitType("CLIENT");
         cp.clickSaveClient();
 
         throw new PendingException();
