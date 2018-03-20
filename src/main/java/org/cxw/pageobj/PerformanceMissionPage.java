@@ -12,11 +12,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.concurrent.TimeUnit;
 
 
-public class PerformanceMissionPageURL extends SetUp {
+public class PerformanceMissionPage {
 
-    WebDriver driver = super.getDriver();
-    WebDriverWait wait = super.getWait();
-    Common cmn = new Common();
+    private WebDriver driver = SetUp.driver;
+    private WebDriverWait wait = SetUp.wait;
+    private Common cmn = new Common();
 
     public void clickLeftNavMissions() {
         //By leftNavMission = By.xpath("//a[@class='tab mission']");

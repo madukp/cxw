@@ -1,22 +1,27 @@
 package org.cxw.demo;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 import org.cxw.pageobj.LoginPage;
-import org.cxw.setup.SetUp;
 
-public class LoginTest extends SetUp {
+public class LoginTest {
+
+    private LoginPage loginPage;
+
+    public LoginTest() {
+        loginPage = new LoginPage();
+    }
 
     @Given("^User log in as SuperAdmin$")
-    public void user_login_as_super_admin() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-
-        setupDriver();
-        LoginPage lp = new LoginPage();
-        lp.superAdminLogin();
-
+    public void user_login_as_super_admin() {
+        loginPage.superAdminLogin();
         //quitDriver();
-
-        throw new PendingException();
     }
+
+    @Then("^User select the default Client and Project$")
+    public void user_select_default_client_and_project() {
+        loginPage.selectDefaultClient();
+        //quitDriver();
+    }
+
 }

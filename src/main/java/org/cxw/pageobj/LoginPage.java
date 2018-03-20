@@ -7,33 +7,33 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LoginPage extends SetUp {
+public class LoginPage {
 
-    WebDriver driver = super.getDriver();
-    WebDriverWait wait = super.getWait();
+    private WebDriver driver = SetUp.driver;
+    private WebDriverWait wait = SetUp.wait;
 
-    private void typeUsername(String username) {
+    public void typeUsername(String username) {
         By txtUserName = By.xpath(".//*[@id='username']");
         driver.findElement(txtUserName).sendKeys(username);
+        System.out.println(driver);
         System.out.println("typeUsername");
     }
 
-    private void typePassword(String pwd) {
+    public void typePassword(String pwd) {
         By txtPassword = By.xpath(".//*[@id='password']");
         driver.findElement(txtPassword).sendKeys(pwd);
         System.out.println("typePassword");
     }
 
-    private void clickLoginButton() {
+    public void clickLoginButton() {
         By btnLogin = By.xpath(".//*[text()='Login']");
         driver.findElement(btnLogin).click();
         System.out.println("clickLoginButton");
     }
 
-    private void selectDefaultClient() {
+    public void selectDefaultClient() {
         By popPuWelcome = By.xpath("//div[@class='modal-body ng-scope']");
         By btnOk = By.xpath("//div[@class='modal-body ng-scope']//div[@class='modal-footer']//button[@class='btn btn-primary']");
-        //By btnOk = By.xpath(".//*[text()='OK']");
 
         wait.until(ExpectedConditions.presenceOfElementLocated(popPuWelcome));
         wait.until(ExpectedConditions.elementToBeClickable(btnOk));
@@ -48,14 +48,12 @@ public class LoginPage extends SetUp {
         typeUsername(adminUsername);
         typePassword(adminPwd);
         clickLoginButton();
-        selectDefaultClient();
     }
 
     public void businessUserLogin(String username, String pwd) {
         typeUsername(username);
         typePassword(pwd);
         clickLoginButton();
-        selectDefaultClient();
     }
 
 

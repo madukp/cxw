@@ -1,29 +1,28 @@
 package org.cxw.demo;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;
 import org.cxw.pageobj.ClientPage;
-import org.cxw.pageobj.LoginPage;
-import org.cxw.setup.SetUp;
 
-public class ClientTest extends SetUp{
+public class ClientTest {
 
-    @Then("^Super Admin creates a client$")
-    public void create_business_user() throws Throwable {
+    private ClientPage clientPage;
+
+    public ClientTest() {
+        clientPage = new ClientPage();
+    }
+
+    @Then("^User creates a \"([^\"]*)\" client$")
+    public void create_business_user(String subLevel) {
         // Write code here that turns the phrase above into concrete actions
-        setupDriver();
-        LoginPage lp = new LoginPage();
-        lp.superAdminLogin();
-        ClientPage cp = new ClientPage();
-        cp.clickLeftNavAdministration();
-        cp.clickLeftNavClients();
-        cp.clickCreateNewClientBtn();
-        cp.fillClientDetails();
-        cp.selectClientSubLevel("Sub Level 3");
-        cp.selectMissionLimitType("CLIENT");
-        cp.clickSaveClient();
 
-        throw new PendingException();
+        clientPage.clickLeftNavAdministration();
+        clientPage.clickLeftNavClients();
+        clientPage.clickCreateNewClientBtn();
+        clientPage.fillClientDetails();
+        clientPage.selectClientSubLevel(subLevel);
+        clientPage.selectMissionLimitType("CLIENT");
+        clientPage.typeTermsAndRules();
+        clientPage.clickSaveClient();
     }
 
 }

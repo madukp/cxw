@@ -1,32 +1,24 @@
 package org.cxw.pageobj;
 
-import java.awt.AWTException;
-import java.io.IOException;
-import java.util.Iterator;
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
-
-import org.cxw.setup.Common;
-import org.cxw.setup.PropertyFile;
 import org.cxw.setup.SetUp;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class BusinessUser extends SetUp {
+public class BusinessUserPage {
 
-    WebDriver driver = super.getDriver();
-    //WebDriverWait wait = super.getWait();
+    private WebDriver driver = SetUp.driver;
+    private WebDriverWait wait = SetUp.wait;
 
-    public void CreateBusinessUser(){
+    public void CreateBusinessUser() {
 
         // navigate to Create Business User Page
 
         try {
             Thread.sleep(7000);
-        } catch (InterruptedException e) {}
+        } catch (InterruptedException e) {
+        }
 
 
         WebElement administrationMenuItem = driver.findElement(By.xpath("//div[1]/aside/div/ul/li[1]/a"));
@@ -34,14 +26,16 @@ public class BusinessUser extends SetUp {
 
         try {
             Thread.sleep(3000);
-        } catch (InterruptedException e) {}
+        } catch (InterruptedException e) {
+        }
 
         WebElement BusinessUserSubmenu = driver.findElement(By.xpath("//a[contains(text(),'Business Users')]"));
         BusinessUserSubmenu.click();
 
         try {
             Thread.sleep(1000);
-        } catch (InterruptedException e) {}
+        } catch (InterruptedException e) {
+        }
 
         WebElement CreateBusinessUserButton = driver.findElement(By.xpath("//button[contains(text(),'Create New Business User')]"));
         CreateBusinessUserButton.click();
@@ -51,7 +45,8 @@ public class BusinessUser extends SetUp {
 
         try {
             Thread.sleep(3000);
-        } catch (InterruptedException e) {}
+        } catch (InterruptedException e) {
+        }
 
         WebElement BUTitle = driver.findElement(By.xpath("//*[@id='title' and @placeholder='Enter Title ...']"));
         BUTitle.sendKeys("Ms");
@@ -79,29 +74,26 @@ public class BusinessUser extends SetUp {
 
     //Search a business user
 
-    public static void SearchBusinessUser(){
+    public void SearchBusinessUser() {
 
         // navigate Business User  List Page
 
         try {
             Thread.sleep(7000);
-        } catch (InterruptedException e) {}
+        } catch (InterruptedException e) {
+        }
 
 
-        WebElement administrationMenuItem = getDriver().findElement(By.xpath("//div[1]/aside/div/ul/li[1]/a"));
+        WebElement administrationMenuItem = driver.findElement(By.xpath("//div[1]/aside/div/ul/li[1]/a"));
         administrationMenuItem.click();
 
         try {
             Thread.sleep(3000);
-        } catch (InterruptedException e) {}
+        } catch (InterruptedException e) {
+        }
 
-        WebElement BusinessUserSubmenu = getDriver().findElement(By.xpath("//a[contains(text(),'Business Users')]"));
+        WebElement BusinessUserSubmenu = driver.findElement(By.xpath("//a[contains(text(),'Business Users')]"));
         BusinessUserSubmenu.click();
-
-
-
-
-
     }
 
 }
