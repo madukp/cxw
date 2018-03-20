@@ -4,12 +4,10 @@ import org.cxw.setup.SetUp;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BusinessUserPage {
 
     private WebDriver driver = SetUp.driver;
-    private WebDriverWait wait = SetUp.wait;
 
     public void CreateBusinessUser() {
 
@@ -57,8 +55,9 @@ public class BusinessUserPage {
         WebElement BULastName = driver.findElement(By.xpath("//*[@id='lastName' and @placeholder='Enter Last Name ...']"));
         BULastName.sendKeys("Brown");
 
+        String email = "spcicx@gmail.com";
         WebElement BUEmail = driver.findElement(By.xpath("//*[@id='email' and @name='email']"));
-        BUEmail.sendKeys("spcicx@gmail.com");
+        BUEmail.sendKeys(email);
 
         WebElement BURole = driver.findElement(By.xpath("//div[@id='role' and @name='role']"));
         BURole.click();
@@ -68,13 +67,11 @@ public class BusinessUserPage {
 
         WebElement SaveBUButton = driver.findElement(By.xpath("//button[@class='btn btn-primary' and contains(text(),'Save')]"));
         SaveBUButton.click();
-
-
     }
 
     //Search a business user
 
-    public void SearchBusinessUser() {
+    public void SearchBusinessUser(String email) {
 
         // navigate Business User  List Page
 
@@ -84,16 +81,25 @@ public class BusinessUserPage {
         }
 
 
-        WebElement administrationMenuItem = driver.findElement(By.xpath("//div[1]/aside/div/ul/li[1]/a"));
-        administrationMenuItem.click();
+        By administrationMenuItem = By.xpath("//div[1]/aside/div/ul/li[1]/a");
+        driver.findElement(administrationMenuItem).click();
 
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
         }
 
-        WebElement BusinessUserSubmenu = driver.findElement(By.xpath("//a[contains(text(),'Business Users')]"));
-        BusinessUserSubmenu.click();
+        By businessUserSubmenu = By.xpath("//a[contains(text(),'Business Users')]");
+        driver.findElement(businessUserSubmenu).click();
+
+        By txtSearchBU = By.xpath("//input[@class='form-control ng-pristine ng-untouched ng-valid' and @placeholder='Search Business Users']");
+        driver.findElement(txtSearchBU).sendKeys(email);
+
+        By btnSearchBU = By.xpath("//i[@class='icon-cx-workout-icons-cx-search form-control-feedback']");
+        driver.findElement(btnSearchBU).click();
+
+        By btnEditBU = By.xpath("//a[@aet-has-permission='EDIT_BUSINESS_USER' and @title='edit']");
+        driver.findElement(btnEditBU).click();
     }
 
 }
