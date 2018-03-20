@@ -13,13 +13,23 @@ public class BusinessUserTest {
 
     @Then("^User creates a business user$")
     public void create_business_user() {
-        // Write code here that turns the phrase above into concrete actions
-        businessUserPage.CreateBusinessUser();
+
+        try {
+            businessUserPage.CreateBusinessUser();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     @Then("^User search a business user with email \"([^\"]*)\"$")
     public void search_business_user(String email) {
-        // Write code here that turns the phrase above into concrete actions
-        businessUserPage.SearchBusinessUser(email);
+
+        try {
+            businessUserPage.SearchBusinessUser(email);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 }

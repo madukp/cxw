@@ -13,16 +13,20 @@ public class ClientTest {
 
     @Then("^User creates a \"([^\"]*)\" client$")
     public void create_business_user(String subLevel) {
-        // Write code here that turns the phrase above into concrete actions
 
-        clientPage.clickLeftNavAdministration();
-        clientPage.clickLeftNavClients();
-        clientPage.clickCreateNewClientBtn();
-        clientPage.fillClientDetails();
-        clientPage.selectClientSubLevel(subLevel);
-        clientPage.selectMissionLimitType("CLIENT");
-        clientPage.typeTermsAndRules();
-        clientPage.clickSaveClient();
+        try {
+            clientPage.clickLeftNavAdministration();
+            clientPage.clickLeftNavClients();
+            clientPage.clickCreateNewClientBtn();
+            clientPage.fillClientDetails();
+            clientPage.selectClientSubLevel(subLevel);
+            clientPage.selectMissionLimitType("CLIENT");
+            clientPage.typeTermsAndRules();
+            clientPage.clickSaveClient();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
 }

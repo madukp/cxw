@@ -20,8 +20,13 @@ public class LoginTest {
 
     @Then("^User select the default Client and Project$")
     public void user_select_default_client_and_project() {
-        loginPage.selectDefaultClient();
-        //quitDriver();
+
+        try {
+            loginPage.selectDefaultClient();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
 }
