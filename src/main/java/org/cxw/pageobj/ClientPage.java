@@ -11,6 +11,9 @@ import java.util.concurrent.TimeUnit;
 
 public class ClientPage extends SetUp {
 
+
+// Test Comment 1 in ClientPage
+
 	//final static Logger logger = Logger.getLogger(ClientPage.class);
 	WebDriver driver = super.getDriver();
 	WebDriverWait wait = super.getWait();
