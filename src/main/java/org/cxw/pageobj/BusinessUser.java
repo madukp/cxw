@@ -19,6 +19,8 @@ public class BusinessUser extends SetUp {
 
     WebDriver driver = super.getDriver();
     //WebDriverWait wait = super.getWait();
+	
+	// Test Comment 1
 
     public void CreateBusinessUser(){
 
