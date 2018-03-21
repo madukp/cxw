@@ -23,3 +23,4 @@ Feature: BusinessUser CRUD
     Then User edits a business user
     Then User deletes a business user "spcicx@gmail.com"
     Then User quit the browser
+    ##Then User logout <-- This would be better than quit driver

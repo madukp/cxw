@@ -14,11 +14,10 @@ import java.util.concurrent.TimeUnit;
 
 public class PerformanceMissionPage {
 
+	private final static Logger logger = Logger.getLogger(PerformanceMissionPage.class);
 	private WebDriver driver = SetUp.setupDriver();
 	private WebDriverWait wait = SetUp.wait;
 	private Common cmn = new Common();
-	final static Logger logger = Logger.getLogger(PerformanceMissionPage.class);
-
 	public void clickLeftNavMissions() {
 		// By leftNavMission = By.xpath("//a[@class='tab mission']");
 		By leftNavMission = By.xpath(".//a[contains(text(),'Mission')]");
@@ -32,7 +31,7 @@ public class PerformanceMissionPage {
 		}
 		// wait.until(ExpectedConditions.visibilityOfElementLocated(leftNavMission));
 		driver.findElement(leftNavMission).click();
-		System.out.println("clickLeftNavMissions");
+		logger.debug("clickLeftNavMissions");
 	}
 
 	public void clickLeftNavProjectTeam() {

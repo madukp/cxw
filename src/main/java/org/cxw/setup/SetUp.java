@@ -17,7 +17,7 @@ public class SetUp {
     
     public static WebDriver setupDriver() {
     	BasicConfigurator.configure();
-    	if (driver == null) {
+    	if (driver == null || driver.toString().contains("(null)")) {
             String driverPath = PropertyFile.readProperty("chrome.driver.path");
             System.setProperty("webdriver.chrome.driver", driverPath);
 
