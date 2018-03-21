@@ -6,8 +6,8 @@ package org.cxw.demo;
 
 	@RunWith(Cucumber.class)
 	@CucumberOptions(plugin = { "pretty", "html:target/cucumber-html-report", "json:target/cucumber-report.json" },
-			glue = "org.ramp.demo",
-			features = "src\\resources\\testcase\\Events.feature"
+			glue = "org.cxw.demo",
+			features = "src\\resources\\testcase\\"
 
 	)
 

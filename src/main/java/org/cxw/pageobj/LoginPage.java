@@ -1,5 +1,6 @@
 package org.cxw.pageobj;
 
+import org.apache.log4j.Logger;
 import org.cxw.setup.PropertyFile;
 import org.cxw.setup.SetUp;
 import org.openqa.selenium.By;
@@ -11,7 +12,7 @@ public class LoginPage {
 
     private WebDriver driver = SetUp.driver;
     private WebDriverWait wait = SetUp.wait;
-
+    final static Logger logger = Logger.getLogger(LoginPage.class);
     public void typeUsername(String username) {
         By txtUserName = By.xpath(".//*[@id='username']");
         driver.findElement(txtUserName).sendKeys(username);

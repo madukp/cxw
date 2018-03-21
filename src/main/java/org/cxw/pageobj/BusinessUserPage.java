@@ -1,5 +1,6 @@
 package org.cxw.pageobj;
 
+import org.apache.log4j.Logger;
 import org.cxw.setup.SetUp;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,7 +9,7 @@ import org.openqa.selenium.WebElement;
 public class BusinessUserPage {
 
     private WebDriver driver = SetUp.driver;
-
+    final static Logger logger = Logger.getLogger(BusinessUserPage.class);
     public void CreateBusinessUser() {
 
         // navigate to Create Business User Page

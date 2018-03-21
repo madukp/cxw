@@ -2,6 +2,9 @@ package org.cxw.setup;
 
 import java.util.concurrent.TimeUnit;
 
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Logger;
+import org.cxw.pageobj.ClientPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -10,9 +13,11 @@ public class SetUp {
 
     public static WebDriver driver = setupDriver();
     public static WebDriverWait wait = setupWait();
-
+    final static Logger logger = Logger.getLogger(ClientPage.class);
+    
     private static WebDriver setupDriver() {
-        if (driver == null) {
+    	BasicConfigurator.configure();
+    	if (driver == null) {
             String driverPath = PropertyFile.readProperty("chrome.driver.path");
             System.setProperty("webdriver.chrome.driver", driverPath);
 

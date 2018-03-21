@@ -1,5 +1,6 @@
 package org.cxw.pageobj;
 
+import org.apache.log4j.Logger;
 import org.cxw.setup.Common;
 import org.cxw.setup.SetUp;
 import org.openqa.selenium.*;
@@ -11,7 +12,9 @@ public class ClientPage {
     private WebDriver driver = SetUp.driver;
     private WebDriverWait wait = SetUp.wait;
     private Common cmn = new Common();
-
+    final static Logger logger = Logger.getLogger(ClientPage.class);
+    
+    
     public void clickLeftNavAdministration() {
         By leftNavAdministration = By.xpath(".//a[contains(text(),'Administration')]");
         wait.until(ExpectedConditions.visibilityOfElementLocated(leftNavAdministration));
