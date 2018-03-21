@@ -10,9 +10,33 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage {
 
-    private WebDriver driver = SetUp.driver;
+    private WebDriver driver;
     private WebDriverWait wait = SetUp.wait;
     final static Logger logger = Logger.getLogger(LoginPage.class);
+
+    public void launchBrowser(){
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+        }
+        driver =  SetUp.setupDriver();
+    }
+
+    public void superAdminLogin() {
+        String adminUsername = PropertyFile.readProperty("username");
+        String adminPwd = PropertyFile.readProperty("password");
+
+        typeUsername(adminUsername);
+        typePassword(adminPwd);
+        clickLoginButton();
+    }
+
+    public void businessUserLogin(String username, String pwd) {
+        typeUsername(username);
+        typePassword(pwd);
+        clickLoginButton();
+    }
+
     public void typeUsername(String username) {
         By txtUserName = By.xpath(".//*[@id='username']");
         driver.findElement(txtUserName).sendKeys(username);
@@ -41,21 +65,5 @@ public class LoginPage {
         driver.findElement(btnOk).click();
         System.out.println("selectDefaultClient");
     }
-
-    public void superAdminLogin() {
-        String adminUsername = PropertyFile.readProperty("username");
-        String adminPwd = PropertyFile.readProperty("password");
-
-        typeUsername(adminUsername);
-        typePassword(adminPwd);
-        clickLoginButton();
-    }
-
-    public void businessUserLogin(String username, String pwd) {
-        typeUsername(username);
-        typePassword(pwd);
-        clickLoginButton();
-    }
-
 
 }

@@ -11,11 +11,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SetUp {
 
-    public static WebDriver driver = setupDriver();
+    private static WebDriver driver = setupDriver();
     public static WebDriverWait wait = setupWait();
     final static Logger logger = Logger.getLogger(ClientPage.class);
     
-    private static WebDriver setupDriver() {
+    public static WebDriver setupDriver() {
     	BasicConfigurator.configure();
     	if (driver == null) {
             String driverPath = PropertyFile.readProperty("chrome.driver.path");
@@ -37,7 +37,7 @@ public class SetUp {
         return new WebDriverWait(driver, 30);
     }
 
-    public void quitDriver() {
+    public static void quitDriver() {
         driver.close();
         driver.quit();
     }

@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 public class PerformanceMissionPage {
 
-	private WebDriver driver = SetUp.driver;
+	private WebDriver driver = SetUp.setupDriver();
 	private WebDriverWait wait = SetUp.wait;
 	private Common cmn = new Common();
 	final static Logger logger = Logger.getLogger(PerformanceMissionPage.class);

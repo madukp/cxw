@@ -12,7 +12,12 @@ public class LoginTest {
         loginPage = new LoginPage();
     }
 
-    @Given("^User log in as SuperAdmin$")
+    @Given("^User launch the web browser$")
+    public void user_launch_the_web_browser() {
+        loginPage.launchBrowser();
+    }
+
+    @Then("^User log in as SuperAdmin$")
     public void user_login_as_super_admin() {
         loginPage.superAdminLogin();
         //quitDriver();
