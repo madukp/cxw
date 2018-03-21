@@ -1,34 +1,39 @@
 package org.cxw.demo;
 
 import cucumber.api.java.en.Then;
-import org.cxw.pageobj.LoginPage;
-import org.cxw.pageobj.PerformanceMissionPageURL;
-import org.cxw.setup.SetUp;
+import org.cxw.pageobj.PerformanceMissionPage;
 
-public class PerformanceMissionTest extends SetUp{
+public class PerformanceMissionTest {
 
-    @Then("^User Create a Performance Mission$")
-    public void user_create_projectTeam_perf_mission() {
-        setupDriver();
-        LoginPage lp = new LoginPage();
-        lp.superAdminLogin();
+    private PerformanceMissionPage PerfMissionPage;
 
-        PerformanceMissionPageURL prfm = new PerformanceMissionPageURL();
-        prfm.clickLeftNavMissions();
-        prfm.clickLeftNavProjectTeam();
-        prfm.clickPerfMissionBtn();
-        prfm.typePerfMissiontitle();
-        prfm.selectDistrbutionType("URL");
-        prfm.clickSaveMission();
-        prfm.selectAction();
-        prfm.gotoStepTwo();
-        prfm.typeParticipantInstructions();
-        prfm.selectMediaUpload();
-        prfm.typeMediaInstructions();
-        prfm.gotoStepThree();
-        prfm.typeThankYouMessage();
-        prfm.gotoStepFive();
-        prfm.clickGenerateURL();
-        prfm.gotoURLmission();
+    public PerformanceMissionTest() {
+        PerfMissionPage = new PerformanceMissionPage();
+    }
+
+    @Then("^User Create a \"([^\"]*)\" Performance Mission$")
+    public void user_create_projectTeam_perf_mission(String distribType) {
+
+        try {
+            PerfMissionPage.clickLeftNavMissions();
+            PerfMissionPage.clickLeftNavProjectTeam();
+            PerfMissionPage.clickPerfMissionBtn();
+            PerfMissionPage.typePerfMissiontitle();
+            PerfMissionPage.selectDistrbutionType(distribType);
+            PerfMissionPage.clickSaveMission();
+            PerfMissionPage.selectAction();
+            PerfMissionPage.gotoStepTwo();
+            PerfMissionPage.typeParticipantInstructions();
+            PerfMissionPage.selectMediaUpload();
+            PerfMissionPage.typeMediaInstructions();
+            PerfMissionPage.gotoStepThree();
+            PerfMissionPage.typeThankYouMessage();
+            PerfMissionPage.gotoStepFive();
+            PerfMissionPage.clickGenerateURL();
+            PerfMissionPage.gotoURLmission();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 }
