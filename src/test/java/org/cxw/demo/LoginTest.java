@@ -34,4 +34,13 @@ public class LoginTest {
         }
     }
 
+    @Then("^User logout$")
+    public void user_logout() {
+        try {
+            loginPage.logout();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 }
