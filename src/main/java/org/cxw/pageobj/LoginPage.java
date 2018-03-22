@@ -57,13 +57,32 @@ public class LoginPage {
     }
 
     public void selectDefaultClient() {
-        By popPuWelcome = By.xpath("//div[@class='modal-body ng-scope']");
+        By popUpWelcome = By.xpath("//div[@class='modal-body ng-scope']");
         By btnOk = By.xpath("//div[@class='modal-body ng-scope']//div[@class='modal-footer']//button[@class='btn btn-primary']");
 
-        wait.until(ExpectedConditions.presenceOfElementLocated(popPuWelcome));
+        wait.until(ExpectedConditions.presenceOfElementLocated(popUpWelcome));
         wait.until(ExpectedConditions.elementToBeClickable(btnOk));
         driver.findElement(btnOk).click();
         System.out.println("selectDefaultClient");
     }
 
+    public void logout() {
+        By dropDownLogout = By.xpath(".//*[@id='nav-bar']/div/ul[2]/li/a");
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        driver.findElement(dropDownLogout).click();
+
+        By Logout = By.xpath(".//*[@id='nav-bar']/div/ul[2]/li/ul/li[3]/a");
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        driver.findElement(Logout).click();
+    }
 }
