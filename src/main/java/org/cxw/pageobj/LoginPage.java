@@ -69,12 +69,13 @@ public class LoginPage {
     public void logout() {
         By dropDownLogout = By.xpath(".//*[@id='nav-bar']/div/ul[2]/li/a");
         try {
-            Thread.sleep(3000);
+            Thread.sleep(7000);
         } catch (InterruptedException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
         driver.findElement(dropDownLogout).click();
+        System.out.println("expandLogoutdropdown");
 
         By Logout = By.xpath(".//*[@id='nav-bar']/div/ul[2]/li/ul/li[3]/a");
         try {
@@ -84,5 +85,6 @@ public class LoginPage {
             e.printStackTrace();
         }
         driver.findElement(Logout).click();
+        System.out.println("selectLogOut");
     }
 }
