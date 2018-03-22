@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ClientPage {
 
-    private WebDriver driver = SetUp.driver;
+    private WebDriver driver = SetUp.setupDriver();
     private WebDriverWait wait = SetUp.wait;
     private Common cmn = new Common();
     final static Logger logger = Logger.getLogger(ClientPage.class);
@@ -50,7 +50,7 @@ public class ClientPage {
     public void fillClientDetails() {
         String rand = cmn.generateUUID().toString().substring(0, 5);
         By txtClientName = By.xpath(".//*[@id='name']");
-        driver.findElement(txtClientName).sendKeys("TestClient " + rand);
+        driver.findElement(txtClientName).sendKeys("AA TestClient " + rand);
         System.out.println("typeClientName: TestClient " + rand);
 
         By txtPendoName = By.xpath(".//*[@id='shortName']");
